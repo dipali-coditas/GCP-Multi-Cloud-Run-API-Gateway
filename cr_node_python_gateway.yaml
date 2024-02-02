@@ -1,0 +1,50 @@
+swagger: '2.0'
+info:
+  title: cr-node-py-application               
+  description: Sample API on API Gateway with a Google Cloud Run backend for nodeapp and pythonapp
+  version: 1.0.0
+schemes:
+  - https
+produces:
+  - application/json
+paths:
+  /:
+    get:
+      operationId: nodeapi1
+      x-google-backend:
+        address: https://nodeapp-zhr5mnjaia-el.a.run.app/nodeapi1
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
+  /nodeapi2:
+    get:
+      operationId: nodeapi2
+      x-google-backend:
+        address: https://nodeapp-zhr5mnjaia-el.a.run.app/nodeapi2
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
+  /pythonapi1:
+    get:
+      operationId: pythonapi1
+      x-google-backend:
+        address: https://pythonapp-zhr5mnjaia-el.a.run.app/pythonapi1
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
+  /pythonapi2:
+    get:
+      operationId: pythonapi2
+      x-google-backend:
+        address: https://pythonapp-zhr5mnjaia-el.a.run.app/pythonapi2
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string

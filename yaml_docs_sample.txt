@@ -1,0 +1,50 @@
+swagger: '2.0'
+info:
+  title: cr-node-py-application         #Add API ID # optional-string 
+  description: Sample API on API Gateway with a Google Cloud Run backend for nodeapp and pythonapp
+  version: 1.0.0
+schemes:
+  - https
+produces:
+  - application/json
+paths:
+  /:                                                                           # add api  default will be root
+    get:
+      operationId: nodeapi1   # add api endpoint-name
+      x-google-backend:
+        address: https://nodeapp-zhr5mnjaia-el.a.run.app/nodeapi1              # add cloudrun api url + endpoint-name 
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
+  /nodeapi2:                                                                    # add api  
+    get:
+      operationId: nodeapi2   # add api endpoint-name
+      x-google-backend:
+        address: https://nodeapp-zhr5mnjaia-el.a.run.app/nodeapi2               # add cloudrun api url + endpoint-name 
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
+  /pythonapi1:                                                                  # add api  
+    get:
+      operationId: pythonapi1     # add api endpoint-name
+      x-google-backend:
+        address: https://pythonapp-zhr5mnjaia-el.a.run.app/pythonapi1            # add cloudrun api url + endpoint-name 
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
+  /pythonapi2:                                                                   # add api  
+    get:
+      operationId: pythonapi2      # add api endpoint-name
+      x-google-backend:
+        address: https://pythonapp-zhr5mnjaia-el.a.run.app/pythonapi2             # add cloudrun api url + endpoint-name 
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
